@@ -117,6 +117,26 @@ cards_container.addEventListener('click', function(evento) {
   };
 });
 
+let moves_body = document.querySelector('.modal-body-power');
+let moves_buttons = document.querySelector('#moves');
+let moves_ol = document.createElement('ol');
+moves_buttons.addEventListener('click', function(evento) {
+  let move_name = evento.target.dataset.move;
+  document.querySelector('.modal-title-power').innerHTML = `Pokemon with ${move_name} move`;
+
+  fetch(`https://pokeapi.co/api/v2/move/${move_name}/`)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    data.learned_by_pokemon.forEach(element => {
+      let pk_li = document.createElement('li');
+      pk_li.innerHTML = element.name;
+      moves_ol.appendChild(pk_li);
+    });
+    moves_body.appendChild(moves_ol);
+  });
+});
 
 
 let blah =  document.querySelector("#blahblah");

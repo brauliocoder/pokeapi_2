@@ -8,6 +8,10 @@ h1 {
   background-color: rgb(255, 193, 7);
 }
 
+ol li {
+  border-bottom: 1px dotted rgb(223, 223, 223);
+}
+
 #blahblah {
   color: gray;
   font-size: small;
