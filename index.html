@@ -23,27 +23,30 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="ModalToggleLabel"></h5>
+            <span id="stat-button"></span>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <span id="blahblah">
+              <img src="./assets/icon/loading.gif" alt="" style="width: 45px;">
+              no sé nada de pokemon, no encontré lo que es "las relaciones de daño" en la API, asi que creé el boton "Stats" en cambio.
+            </span>
             <div>
               <h6>Type(s):</h6>
               <ul id="modal-body-types"></ul>
             </div>
 
             <div>
-              <button class="btn btn-primary btn-sm" data-bs-target="#ModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
-              <button class="btn btn-primary btn-sm" data-bs-target="#ModalToggle3" data-bs-toggle="modal" data-bs-dismiss="modal">Open third modal</button>
               <h6>Abilities:</h6>
               <ul id="modal-body-abilities"></ul>
             </div>
-
+            
             <div>
               <h6>5 main moves:</h6>
-              <ul id="modal-body-moves"></ul>
+              <ol id="modal-body-moves"></ol>
             </div>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer d-flex justify-content-between">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
@@ -54,11 +57,10 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="ModalToggleLabel2">Modal 2</h5>
+            <h5 class="modal-title-stats"></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            Hide this modal and show the first with the button below.
+          <div class="stats-modal-body">
           </div>
           <div class="modal-footer">
             <button class="btn btn-primary" data-bs-target="#ModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
@@ -71,10 +73,10 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="ModalToggleLabel3">Modal 3</h5>
+            <h5 class="modal-title-power" id="ModalToggleLabel3">Modal 3</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body-power">
             Hide this modal and show the first with the button below.
           </div>
           <div class="modal-footer">

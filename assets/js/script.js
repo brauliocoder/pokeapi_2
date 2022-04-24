@@ -60,12 +60,14 @@ render_button.addEventListener('click', function(evento) {
 });
 
 let cards_container = document.querySelector('#cards-container');
-let modal_title = document.querySelector('.modal-title')
-let modal_body = document.querySelector('.modal-body')
+let modal_title = document.querySelector('.modal-title');
+let modal_body = document.querySelector('.modal-body');
+let modal_button_stat = document.querySelector('#stat-button');
 cards_container.addEventListener('click', function(evento) {
   let name = evento.target.dataset.pokemon;
   if (name != undefined) {
     modal_title.innerHTML = name;
+    modal_button_stat.innerHTML = `<button class="btn btn-warning ms-2 btn-sm" data-pokemon="${name}" data-bs-target="#ModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Stats</button>`;
 
     let t = modal_body.querySelector('#modal-body-types');
     let g = modal_body.querySelector('#modal-body-abilities');
@@ -93,10 +95,31 @@ cards_container.addEventListener('click', function(evento) {
 
       for (let move_index = 0; move_index < 5; move_index++) {
         let li = document.createElement('li');
-        li.innerHTML = data['moves'][move_index]['move']['name'];
+        let move = data['moves'][move_index]['move']['name'];
+        li.innerHTML = `<button class="btn-sm btn btn-outline-dark p-0 px-1" data-bs-target="#ModalToggle3" data-move="${move}" data-bs-toggle="modal" data-bs-dismiss="modal">${move}</button>`;
         m.appendChild(li);
-        
       }
+
+      // Stats
+      document.querySelector('.modal-title-stats').innerHTML = data.name + " stats";
+      let body_stat_modal = document.querySelector('.stats-modal-body');
+      let stat_ul = document.createElement('ul');
+      data['stats'].forEach(element => {
+        stat_value = element.base_stat;
+        stat_name = element.stat.name;
+
+        let stat_li = document.createElement('li');
+        stat_li.innerHTML = `${stat_name}: ${stat_value}`;
+        stat_ul.appendChild(stat_li);
+      });
+      body_stat_modal.appendChild(stat_ul);
     });
   };
+});
+
+
+
+let blah =  document.querySelector("#blahblah");
+blah.addEventListener('click', function(){
+  blah.remove();
 });
